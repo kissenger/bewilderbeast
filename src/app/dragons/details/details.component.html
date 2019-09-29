@@ -1,0 +1,61 @@
+<div class="title-and-description">
+  <h1>{{dragonData.name}}</h1>
+  {{dragonData.description}}
+</div>
+
+<div class="tabulated_data">
+  <table>
+    <!-- <col width="200">
+    <col width="200"> -->
+    <tr>
+      <td style="width:150px">Size</td>
+      <td style="width:400px">
+      <!-- <td> -->
+        <div *ngIf="dragonData.size; else sizeElse">{{dragonData.size}}</div>
+        <ng-template #sizeElse>Unknown</ng-template>
+      </td>
+    </tr>
+    <tr>
+      <td>Colour</td>
+      <td>
+        <div *ngIf="dragonData.colour; else colourElse">{{dragonData.colour}}</div>
+        <ng-template #colourElse>Unknown</ng-template>
+      </td>
+    </tr>
+    <tr>
+      <td>Temperament</td>
+      <td>
+        <div *ngIf="dragonData.temperament; else tempElse">{{dragonData.temperament}}</div>
+        <ng-template #tempElse>Unknown</ng-template>
+      </td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>
+        <div *ngIf="dragonData.type; else typeElse">{{dragonData.type}}</div>
+        <ng-template #typeElse>Unknown</ng-template>
+      </td>
+    </tr>
+    <tr>
+      <td>Speed</td>
+      <td>
+        <div *ngIf="dragonData.speed; else speedElse">{{dragonData.speed}}</div>
+        <ng-template #speedElse>Unknown</ng-template>
+      </td>
+    </tr>
+    <tr>
+      <td>Attack Power</td>
+      <td>
+        <div *ngIf="dragonData.attackPower; else attackElse">{{dragonData.attackPower}}</div>
+        <ng-template #attackElse>Unknown</ng-template>
+      </td>
+    </tr>
+    <tr>
+      <td>Source</td>
+      <td>
+        <div *ngIf="dragonData.source; else sourceElse">{{dragonData.source}}</div>
+        <ng-template #sourceElse>Unknown</ng-template>
+      </td>
+    </tr>
+  </table>
+</div>

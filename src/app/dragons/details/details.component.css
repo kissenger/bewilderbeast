@@ -1,0 +1,10 @@
+.table, th, td{
+  border: 1px gainsboro solid;
+  padding: 5px;
+}
+
+
+.title-and-description {
+  height: 200px;
+  border: 0px red solid;
+}
