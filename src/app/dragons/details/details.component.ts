@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataService } from 'src/app/data.service';
+import { Dragons } from 'src/app/dragons.model';
 
 @Component({
   selector: 'app-details',
@@ -13,14 +14,13 @@ export class DetailsComponent implements OnInit, OnDestroy {
   public dragonData;
   private myService;
 
-  constructor(private dataService: DataService) { }
+  constructor(
+    private dataService: DataService,
+    private dragons: Dragons) { }
 
   ngOnInit() {
-    this.myService = this.dataService.fromListToDetails.subscribe( (dragonData) => {
-      console.log(dragonData);
-      // this.dragonName = dragonData.name;
-      // this.dragonDesc = dragonData.description;
-      this.dragonData = dragonData;
+    this.myService = this.dataService.fromListToDetails.subscribe( (index) => {
+      this.dragonData = this.dragons.database[index];
     });
   }
 

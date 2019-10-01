@@ -7,9 +7,9 @@ import { Injectable } from '@angular/core';
  */
 
 @Injectable()
-export class DatabaseData {
+export class Dragons {
 
-  public dData = [
+  public database = [
     { name: 'Ivy',
       description: 'ivy is Aron\'s favourite dragon. it is big and cuddly, if a little stupid ivy is Aron\'s favourite'
       + 'dragon. it is big and cuddly, if a little stupid ivy is Aron\'s favourite dragon. it is big and cuddly, if a little'
@@ -82,21 +82,13 @@ export class DatabaseData {
       description: 'aron loves daddy!!',
       source: '' },
 
-      { name: '',
-      description: 'aron loves daddy!!',
-      source: '' },
-
-      { name: '',
-      description: 'aron loves daddy!!',
-      source: '' },
-
-      { name: '',
-      description: 'aron loves daddy!!',
-      source: '' }
-
   ];
 
-  loadDB() {
-    return this.dData;
-  }
+  public numberOfDragons = this.database.length;
+
+  // read by list component
+  // set by home component on clicking 'dragon of the day', otherwise it remains 0
+  public activeDragon = 0;
+
+
 }

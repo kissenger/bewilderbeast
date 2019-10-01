@@ -1,7 +1,7 @@
 <h2>Here is a list of dragons: </h2>
 
 <ul>
-  <div *ngFor="let item of dragonData">
-    <div id={{item.name}} (click)="onItemClick(item.name)" style="cursor:pointer"><li>{{item.name}}</li></div>
+  <div *ngFor="let item of dragonData, index as i">
+    <div id={{item.name}} (click)="onItemClick(i)" style="cursor:pointer"><li>{{item.name}}</li></div>
   </div>
 </ul>

@@ -13,6 +13,7 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'home', component: HomeComponent},
   { path: 'dragons', component: DragonsComponent},
+  { path: 'dragons/:dragonIndex', component: DragonsComponent},
   { path: 'about', component: AboutComponent},
 ];
 

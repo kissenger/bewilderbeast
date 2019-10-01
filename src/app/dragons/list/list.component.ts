@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, AfterContentInit } from '@angular/core';
 import { DataService } from '../../data.service';
-import { DatabaseData } from '../../database.model';
+import { Dragons } from '../../dragons.model';
 
 @Component({
   selector: 'app-list',
@@ -13,21 +13,29 @@ export class ListComponent implements OnInit, AfterContentInit {
 
   constructor(
     private dataService: DataService,
-    private databaseData: DatabaseData) { }
+    private dragons: Dragons
+    ) { }
 
   ngOnInit() {
-    // console.log(Object.entries(this.dragonData));
-    this.dragonData = this.databaseData.loadDB();
-    console.log(this.dragonData[0]);
-    this.dataService.fromListToDetails.emit(this.dragonData[0]);
+
+    this.dragonData = this.dragons.database;
+
   }
 
+  /**
+   * ngAfterContentInit()
+   * Runs after Angular projects external content into the component's view / the view that a directive is in.
+   * see https://angular.io/guide/lifecycle-hooks#onchanges
+   * Need to run here to ensure that list is fully initialised before emitting to details
+   */
   ngAfterContentInit() {
-    this.dataService.fromListToDetails.emit(this.dragonData[0]);
+    // gets the active dragon from dragons class - this deals with possibility of
+    // coming in raw (index 0 required) or from dragon of the day (index variable)
+    this.dataService.fromListToDetails.emit(this.dragons.activeDragon);
   }
 
-  onItemClick(dragonName) {
-    this.dataService.fromListToDetails.emit(this.getDragonData(dragonName));
+  onItemClick(index) {
+    this.dataService.fromListToDetails.emit(index);
   }
 
   getDragonData(dragonName) {

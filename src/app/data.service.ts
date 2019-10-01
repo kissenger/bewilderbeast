@@ -1,4 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
+ // import { seedrandom } from 'seedrandom';
 
 /**
  *
@@ -10,5 +11,9 @@ import { EventEmitter, Injectable } from '@angular/core';
 export class DataService {
 
   fromListToDetails = new EventEmitter();
+
+  // activeDragon(dragonIndex) {
+  //   this.activeDragon = dragonIndex;
+  // }
 
 }

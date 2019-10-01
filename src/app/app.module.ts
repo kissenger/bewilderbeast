@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 import { DataService } from './data.service';
-import { DatabaseData } from './database.model';
+import { Dragons } from './dragons.model';
+import { ToolsService } from './tools.service';
 
 import { AppComponent } from './app.component';
 import { ListComponent } from './dragons/list/list.component';
@@ -30,7 +31,8 @@ import { HomeComponent } from './home/home.component';
   ],
   providers: [
     DataService,
-    DatabaseData
+    ToolsService,
+    Dragons
   ],
   bootstrap: [AppComponent]
 })
