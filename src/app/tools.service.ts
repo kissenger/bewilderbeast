@@ -15,7 +15,7 @@ export class ToolsService {
 
     // gets a unique number for each day and uses this to seed PRNG
     const millis = Date.now();
-    const days = Math.round(millis / 1000 / 60 / 60 / 24);
+    const days = Math.floor(millis / 1000 / 60 / 60 / 24);
     const dragonIndex =  Math.round(this.mulberry32( days ) * this.dragons.numberOfDragons);
 
     // returns an object containing dragon index and name
