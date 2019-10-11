@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DataService } from './data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
-  title = 'bewilderbeast';
-  // Math = Math;
+export class AppComponent implements OnInit {
+  title = 'Dragons or Animals?';
+
+  constructor(
+    private dataService: DataService,
+    private router: Router
+  ) { }
+
+  ngOnInit() {
+
+  }
 
 }
 

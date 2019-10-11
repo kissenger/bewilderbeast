@@ -1,26 +1,26 @@
 import { Injectable } from '@angular/core';
-import { Dragons } from 'src/app/dragons.model';
+import { DataService } from 'src/app/data.service';
 
 @Injectable()
 export class ToolsService {
 
   constructor(
-    private dragons: Dragons
+    private dataService: DataService
    ) {}
 
   /**
    * Returns ao object containing dragon name and index that changes depending on the day
    */
-  getDragonOfTheDay() {
+  getItemOfTheDay() {
 
     // gets a unique number for each day and uses this to seed PRNG
     const millis = Date.now();
     const days = Math.floor(millis / 1000 / 60 / 60 / 24);
-    const dragonIndex =  Math.round(this.mulberry32( days ) * this.dragons.numberOfDragons);
+    const dragonIndex = Math.round(this.mulberry32( days ) * this.dataService.databaseLength);
 
     // returns an object containing dragon index and name
     return {
-      name: this.dragons.database[dragonIndex].name,
+      name: this.dataService.database[dragonIndex].name,
       index: dragonIndex
     };
   }

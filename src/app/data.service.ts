@@ -1,5 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
- // import { seedrandom } from 'seedrandom';
+import { Dragons } from './data-dragons.model';
+import { Animals } from './data-animals.model';
+import { Router } from '@angular/router';
 
 /**
  *
@@ -10,10 +12,24 @@ import { EventEmitter, Injectable } from '@angular/core';
 @Injectable()
 export class DataService {
 
-  fromListToDetails = new EventEmitter();
+  public fromListToDetails = new EventEmitter();
+  public database;
+  public databaseLength;
+  public activeItem = 0;
+  public baseUrl: string;
 
-  // activeDragon(dragonIndex) {
-  //   this.activeDragon = dragonIndex;
-  // }
+  constructor(
+    private dragons: Dragons,
+    private animals: Animals,
+    private router: Router
+  ) { }
+
+  initialise() {
+      this.baseUrl = this.router.url.split('/')[1];
+      if ( this.baseUrl === 'dragons' ) { this.database = this.dragons.database; }
+      if ( this.baseUrl === 'animals' ) { this.database = this.animals.database; }
+      this.databaseLength = this.database.length;
+  }
+
 
 }

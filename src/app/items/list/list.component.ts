@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy, AfterContentInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { DataService } from '../../data.service';
-import { Dragons } from '../../dragons.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -9,17 +9,14 @@ import { Dragons } from '../../dragons.model';
 })
 export class ListComponent implements OnInit, AfterContentInit {
 
-  private dragonData;
+  private itemData;
 
   constructor(
-    private dataService: DataService,
-    private dragons: Dragons
+    private dataService: DataService
     ) { }
 
   ngOnInit() {
-
-    this.dragonData = this.dragons.database;
-
+    this.itemData = this.dataService.database;
   }
 
   /**
@@ -31,17 +28,18 @@ export class ListComponent implements OnInit, AfterContentInit {
   ngAfterContentInit() {
     // gets the active dragon from dragons class - this deals with possibility of
     // coming in raw (index 0 required) or from dragon of the day (index variable)
-    this.dataService.fromListToDetails.emit(this.dragons.activeDragon);
+    this.dataService.fromListToDetails.emit(this.dataService.activeItem);
   }
 
   onItemClick(index) {
+    console.log(index);
     this.dataService.fromListToDetails.emit(index);
   }
 
-  getDragonData(dragonName) {
+  getItemData(itemName) {
 
-    for ( const dragon of this.dragonData) {
-      if (dragon.name === dragonName) {
+    for ( const dragon of this.itemData) {
+      if (dragon.name === itemName) {
         return dragon; }
     }
   }
