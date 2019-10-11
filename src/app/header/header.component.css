@@ -1,27 +1,3 @@
 
 /* navigtaion bar */
-.navbar{
-  margin: 0px 0px 0px 0px;
-  padding: 10px 0px 10px 0px;
-  background-color: white;
-  border-top: 1px gainsboro solid;
-}
 
-.navbar-default {
-  border: 0px;
-}
-
-/* brand / website title */
-.navbar-brand{
-  color: black;
-  font-size: 34px;
-  opacity: 1;
-}
-
-/* navigation buttons */
-.navbar-nav > li > a {
-  color: black;
-  font-size: 20px;
-  opacity: 1;
-  /* border: 1px white solid; */
-}

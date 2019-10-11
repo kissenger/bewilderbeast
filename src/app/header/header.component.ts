@@ -24,10 +24,11 @@ export class HeaderComponent implements OnInit {
     // use setinterval to poll siteName until it is set
     this.timer = setInterval( () => {
       this.siteName = this.dataService.baseUrl;
-      if ( this.siteName === 'undefined' ) { return false; }
       this.siteNameCaps = this.siteName[0].toUpperCase() + this.siteName.slice(1);
+      // Remove trailing 's' if there is one
+      this.siteNameCaps = this.siteNameCaps.slice(this.siteNameCaps.length-1) === 's' ? this.siteNameCaps.slice(0, this.siteNameCaps.length-1) : this.siteNameCaps;      
       clearInterval(this.timer);
-    }, 200);
+    }, 50);
 
   }
 

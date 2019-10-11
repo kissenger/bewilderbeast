@@ -3,5 +3,8 @@
   width: auto;
   font-size: large;
   padding-top: 25px;
-  /* display: inline-block; */
+}
+
+.body-text {
+  margin-top: 20px;
 }

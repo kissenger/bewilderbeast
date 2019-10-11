@@ -12,15 +12,11 @@ import { NotFoundComponent } from './notfound/notfound.component';
 // **named routes must be named different to any back-end routes defined
 const appRoutes: Routes = [
   { path: '', component: NotFoundComponent},
-  // { path: 'home', component: HomeComponent},
-  // { path: 'dragons', component: DragonsComponent},
-  // { path: 'dragons/:dragonIndex', component: DragonsComponent},
-  // { path: 'about', component: AboutComponent},
   { path: 'dragons', component: HomeComponent},
-  { path: 'animals', component: HomeComponent},
   { path: 'dragons/home', component: HomeComponent},
   { path: 'dragons/dragons', component: ItemsComponent},
   { path: 'dragons/about', component: AboutComponent},
+  { path: 'animals', component: HomeComponent},
   { path: 'animals/home', component: HomeComponent},
   { path: 'animals/animals', component: ItemsComponent},
   { path: 'animals/about', component: AboutComponent},

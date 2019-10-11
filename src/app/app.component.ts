@@ -11,6 +11,7 @@ import { DataService } from './data.service';
 export class AppComponent implements OnInit {
   private title = 'Dragons or Animals?';
   private showHeader = true;
+  private timer;
 
   constructor(
     private router: Router,
@@ -18,9 +19,13 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+    this.timer = setInterval( () => {
+      if ( this.router.url === '/' ) { this.showHeader = false; }
+      console.log(this.router.url);
+      clearInterval(this.timer);
+    }, 100);
     // if ( this.router.url === '/' ) { this.showHeader = false; }
-    // console.log(this.dataService.baseUrl);
+    // console.log(this.router.url);
   }
 
 }
