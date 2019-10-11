@@ -32,7 +32,6 @@ export class ListComponent implements OnInit, AfterContentInit {
   }
 
   onItemClick(index) {
-    console.log(index);
     this.dataService.fromListToDetails.emit(index);
   }
 

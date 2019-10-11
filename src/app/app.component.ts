@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from './data.service';
 import { Router } from '@angular/router';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +9,18 @@ import { Router } from '@angular/router';
 })
 
 export class AppComponent implements OnInit {
-  title = 'Dragons or Animals?';
+  private title = 'Dragons or Animals?';
+  private showHeader = true;
 
   constructor(
-    private dataService: DataService,
-    private router: Router
+    private router: Router,
+    private dataService: DataService
   ) { }
 
   ngOnInit() {
-
+    
+    // if ( this.router.url === '/' ) { this.showHeader = false; }
+    // console.log(this.dataService.baseUrl);
   }
 
 }

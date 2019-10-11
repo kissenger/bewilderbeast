@@ -21,7 +21,6 @@ export class DetailsComponent implements OnInit, OnDestroy {
 
     // listen to data coming from other components
     this.myService = this.dataService.fromListToDetails.subscribe( (index) => {
-      console.log(index);
       this.itemData = [this.dataService.database[index]];  // [] to get the interation in ngFor to work - don't really understand why
     });
   }

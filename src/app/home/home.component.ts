@@ -23,6 +23,11 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.dataService.initialise();
     this.itemOfTheDay = this.tools.getItemOfTheDay();
     this.siteName = this.dataService.baseUrl;
+
+    // Remove trailing 's' if there is one
+    this.siteName = this.siteName.slice(this.siteName.length-1) === 's' ? this.siteName.slice(0, this.siteName.length-1) : this.siteName;
+    // Capitilise first char
+    this.siteName = this.siteName.slice(0, 1).toUpperCase() + this.siteName.slice(1, this.siteName.length);
   }
 
   /** rather than navigate to desired page through the url, use click to

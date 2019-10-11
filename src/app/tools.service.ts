@@ -16,12 +16,12 @@ export class ToolsService {
     // gets a unique number for each day and uses this to seed PRNG
     const millis = Date.now();
     const days = Math.floor(millis / 1000 / 60 / 60 / 24);
-    const dragonIndex = Math.round(this.mulberry32( days ) * this.dataService.databaseLength);
+    const itemIndex = Math.round(this.mulberry32( days ) * this.dataService.databaseLength) - 1;
 
     // returns an object containing dragon index and name
     return {
-      name: this.dataService.database[dragonIndex].name,
-      index: dragonIndex
+      name: this.dataService.database[itemIndex].name,
+      index: itemIndex
     };
   }
 

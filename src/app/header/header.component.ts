@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
 
+
     // use setinterval to poll siteName until it is set
     this.timer = setInterval( () => {
       this.siteName = this.dataService.baseUrl;
@@ -27,9 +28,6 @@ export class HeaderComponent implements OnInit {
       this.siteNameCaps = this.siteName[0].toUpperCase() + this.siteName.slice(1);
       clearInterval(this.timer);
     }, 200);
-
-
-
 
   }
 
