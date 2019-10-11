@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 })
 export class DetailsComponent implements OnInit, OnDestroy {
 
-  public itemData;
+  public itemData = [{}];
+  public itemName = '';
+  public itemDesc = '';
   private myService;
 
   constructor(
@@ -21,7 +23,21 @@ export class DetailsComponent implements OnInit, OnDestroy {
 
     // listen to data coming from other components
     this.myService = this.dataService.fromListToDetails.subscribe( (index) => {
-      this.itemData = [this.dataService.database[index]];  // [] to get the interation in ngFor to work - don't really understand why
+
+      // reset objects otherwise if data is missing it will show last item's data
+      this.itemName = '';
+      this.itemDesc = '';
+      this.itemData = [{}];
+
+      // loop through object, strip out name and desc
+      Object.entries(this.dataService.database[index]).forEach( ([key, val]) => {
+        if ( key === 'name') { this.itemName = val.toString(); }
+        else if ( key === 'description' ) { this.itemDesc = val.toString(); }
+        else { this.itemData[0][key] = val }
+      });
+
+      // debug
+      // console.log(this.itemData[0]);
     });
   }
 
@@ -35,4 +51,13 @@ export class DetailsComponent implements OnInit, OnDestroy {
     this.myService.unsubscribe();
   }
 
+  // getDataList(i) {
+    
+  //   const data = this.dataService.database[i];
+  //   delete data['name'];
+  //   delete data['description'];
+
+  //   return [data];
+
+  // }
 }

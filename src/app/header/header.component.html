@@ -1,29 +1,30 @@
 
-<!-- <div class="container"> -->
-  <!-- <div class="row upper-gap"> -->
 
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type = "button" class = "navbar-toggle" data-toggle = "collapse" data-target = "#myNavbar">
-            <span class = "sr-only">Toggle navigation</span>
-            <span class = "icon-bar"></span>
-            <span class = "icon-bar"></span>
-            <span class = "icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Project {{siteNameCaps}}</a>
-        </div> <!-- navbar-header-->
+<!--
+  Note this is all bootstrap controlled https://getbootstrap.com/docs/4.3/components/navbar/
+  Useful links:
+    - https://getbootstrap.com/docs/4.0/utilities/spacing/
+-->
 
-        <div class = "collapse navbar-collapse" id = "myNavbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a [routerLink]="['/', siteName, 'home']"    class="navbar-text-color">Home   </a> </li>
-            <li><a [routerLink]="['/', siteName, siteName]" class="navbar-text-color">{{siteNameCaps}}</a> </li>
-            <li><a [routerLink]="['/', siteName, 'about']"   class="navbar-text-color">About  </a></li>
+<nav class="navbar navbar-expand-lg ml-0 mb-1 pl-0 navbar-light border-bottom">
 
-          </ul>
-        </div> <!-- collapse navbar-collapse-->
-      </div> <!-- container-fluid -->
-    </nav> <!-- navbar navbar-default -->
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Project {{siteNameCaps}}</a>
 
-  <!-- </div> -->
-<!-- </div>   container -->
+  <!-- This defines the collapsed hamburger menu -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Uncollapsed menu -->
+  <div class="collapse navbar-collapse " id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" [routerLink]="['/', siteName, 'home']">Home</a> </li>
+        <li class="nav-item"><a class="nav-link" [routerLink]="['/', siteName, siteName]">{{siteNameCaps}}</a> </li>
+        <li class="nav-item"><a class="nav-link" [routerLink]="['/', siteName, 'about']">About</a></li>        
+      </ul>
+  </div>
+
+</nav>
+
+
